@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export default function Topbar({setShowlogin}) {
 
@@ -8,10 +9,13 @@ export default function Topbar({setShowlogin}) {
     setShowlogin(x)
   }
 
+  const navigate = useNavigate()
+
   return (
     <div className='topbar'>
         <nav className="navbar navbar-expand-lg bg-body-tertiary d-flex flex-row-reverse">
                 <button className='btn btn-success m-2' onClick={setLogin}>Login</button>
+                <button className='btn btn-success m-2' onClick={()=>navigate('/cart')}>Cart</button>
         </nav>
     </div>
   )

@@ -14,7 +14,12 @@ export const apiEndpoints = {
     UPDATE_PRODUCT_ENDPOINT: '/update-product',
     VALIDATE_EMAIL_ENDPOINT: '/validate-email',
     VALIDATE_OTP_ENDPOINT: '/validate-otp',
-    UPDATE_PASSWORD_ENDPOINT: '/reset-password'
+    UPDATE_PASSWORD_ENDPOINT: '/reset-password',
+    FETCH_CART_ENDPOINT: '/fetch-cart',
+    ADD_TO_CART_ENDPOINT: '/add-to-cart',
+    DELETE_FROM_CART_ENDPOINT: '/remove-from-cart',
+    ORDER_FROM_CART_ENDPOINT: '/order-from-cart'
+
 }
 
 export const httpMethods = {

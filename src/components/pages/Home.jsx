@@ -55,6 +55,27 @@ export default function Home() {
     }
   }
 
+  const addToCart = async (productId) => {
+    try {
+        console.log(productId);
+        let addToCardPayload = {
+            customerId: 'dummy',
+            productId: productId
+        }
+        const data = await apiConnection(apiEndpoints.ADD_TO_CART_ENDPOINT,httpMethods.POST,addToCardPayload)
+        console.log(data)
+        if(data.status === 201 || 200){
+            console.log(data)
+        } else {
+            console.log(data)
+        }
+    }
+    catch(err) {
+        console.log(err)
+    }
+  }
+  
+
   useEffect(()=>{
     getProducts()
   },[category, price])
@@ -99,7 +120,7 @@ export default function Home() {
                         </Card.Text>
                         <p>Price: <s>{item.price}</s></p>
                         <b>Discounted Price: {item.discountedPrice}</b>
-                            <Button variant="warning" className='me-2' >Add to cart</Button>
+                            <Button variant="warning" className='me-2' onClick={()=>addToCart(item._id)}>Add to cart</Button>
                             <Button variant="success">Buy now</Button>
                         </Card.Body>
                     </Card>
