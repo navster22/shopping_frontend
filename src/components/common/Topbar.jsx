@@ -11,11 +11,22 @@ export default function Topbar({setShowlogin}) {
 
   const navigate = useNavigate()
 
+  const logout = () => {
+    sessionStorage.clear();
+    navigate('/')
+  }
+
   return (
     <div className='topbar'>
         <nav className="navbar navbar-expand-lg bg-body-tertiary d-flex flex-row-reverse">
-                <button className='btn btn-success m-2' onClick={setLogin}>Login</button>
-                <button className='btn btn-success m-2' onClick={()=>navigate('/cart')}>Cart</button>
+          {sessionStorage.getItem('user_data') ? 
+          <>
+            <button className='btn btn-success m-2' onClick={()=>navigate('/cart')}>Cart</button>
+            <button className='btn btn-danger m-2' onClick={logout}>Logout</button>
+          </>
+          :
+          <button className='btn btn-success m-2' onClick={setLogin}>Login</button>
+          }
         </nav>
     </div>
   )
